@@ -1,21 +1,31 @@
-<div>
-    <mat-form-field class="attendee-list" appearance="fill">
-        <mat-label>Mob Session Attendees</mat-label>
-        <perfect-scrollbar style="height: 100px;" #attendeesScrollbar>
-            <mat-chip-list #chipList aria-label="Attendees selection">
-                <mat-chip *ngFor="let attendee of attendees" [selectable]="true" [removable]="true"
-                    (removed)="remove(attendee)">
-                    {{attendee}}
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-                <br />
-                <input placeholder="Enter attendee name then press Enter" [matChipInputFor]="chipList"
-                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
-                    (matChipInputTokenEnd)="add($event)">
-            </mat-chip-list>
-        </perfect-scrollbar>
-    </mat-form-field>
-</div>
+<div class="configurator-container">
+    <div>
+        <mat-form-field class="attendee-list" appearance="fill">
+            <mat-label>Mob Session Attendees</mat-label>
+            <perfect-scrollbar style="height: 100px;" #attendeesScrollbar>
+                <mat-chip-list #chipList aria-label="Attendees selection">
+                    <mat-chip *ngFor="let attendee of attendees" [selectable]="true" [removable]="true"
+                        (removed)="remove(attendee)">
+                        {{attendee}}
+                        <mat-icon matChipRemove>cancel</mat-icon>
+                    </mat-chip>
+                    <br />
+                    <input placeholder="Enter attendee name then press Enter" [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
+                        (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+            </perfect-scrollbar>
+        </mat-form-field>
+    </div>
+    <div class="options">
+        <mat-checkbox class="randomize">Randomize</mat-checkbox>
+        <mat-form-field class="time-interval" appearance="fill">
+            <mat-label>Intervals</mat-label>
+            <input matInput placeholder="Must be an integer" [value]="timeInterval">
+            <span matSuffix>minutes</span>
+        </mat-form-field>
+    </div>
 
-<button class="start-button" mat-raised-button color="primary" (click)="startSession()"
-    [disabled]="!sessionCanStart()">Start Mob Programming Session</button>
+    <button class="start-button" mat-raised-button color="primary" (click)="startSession()"
+        [disabled]="!sessionCanStart()">Start Mob Programming Session</button>
+</div>

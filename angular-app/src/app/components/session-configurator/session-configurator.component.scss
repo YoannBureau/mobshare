@@ -1,7 +1,23 @@
-.attendee-list {
+.configurator-container {
     width: 260px;
-}
+    padding: 10px 10px;
+    border: 1px red solid;
+    
+    .attendee-list {
+        width: 260px;
+    }
+    
+    .options {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    
+        .time-interval {
+            width: 125px;
+        }
+    }
 
-.start-button {
-    width: 260px;
+    .start-button {
+        width: 260px;
+    }
 }

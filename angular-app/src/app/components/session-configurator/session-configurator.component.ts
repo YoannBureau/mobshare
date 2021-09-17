@@ -16,6 +16,7 @@ export class SessionConfiguratorComponent implements OnInit {
 
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   attendees: string[] = [];
+  timeInterval = 5;
 
   @ViewChild('attendeesScrollbar') attendeesScrollbar!: PerfectScrollbarComponent;
 
