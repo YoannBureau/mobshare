@@ -21,7 +21,7 @@
         <mat-checkbox class="randomize">Randomize</mat-checkbox>
         <mat-form-field class="time-interval" appearance="fill">
             <mat-label>Intervals</mat-label>
-            <input matInput placeholder="Must be an integer" [value]="timeInterval">
+            <input type="number" min="1" matInput placeholder="Must be an integer" [value]="timeInterval">
             <span matSuffix>minutes</span>
         </mat-form-field>
     </div>
