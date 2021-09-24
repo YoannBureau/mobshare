@@ -9,28 +9,53 @@ import { SessionService } from 'src/app/services/session.service';
 })
 export class SessionComponent implements OnInit {
 
+  private currentAttendeeIndex = 0;
+  private remainingSeconds = 0;
+
   constructor(
     private sessionService: SessionService,
     private _snackBar: MatSnackBar
   ) {
     // TODO : Remove
-    this.sessionService.setSession(["John", "Jane", "Jack", "Bernard"], true, 5);
+    this.sessionService.setSession(["John", "Jane", "Jack", "Bernard"], false, 5);
   }
 
   ngOnInit(): void {
-    this.openSnackBar("Give controls to John, then press \"Start\".", "Start");
+    this.openSnackBar(`Give controls to ${this.currentDriver()}, then press \"Start\".`, "Start");
   }
 
-  progressBarValue = () => 77;
+  progressBarValue = () => 100 - ((this.remainingSeconds*100)/(this.sessionService.intervals*60));
+  formatCyphers = (value:number) => value.toString().length === 1 ? `0${value}` : `${value}`;
+  timerMinutes = () => Math.floor(this.remainingSeconds / 60);
+  timerSeconds = () => this.remainingSeconds - this.timerMinutes() * 60;
+
+  currentDriver = () => this.sessionService.attendees[this.currentAttendeeIndex];
+
+  currentNavigator = () => this.sessionService.attendees[this.currentAttendeeIndex+1];
 
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(
+    const snackBarRef = this._snackBar.open(
       message,
       action,
       {
         verticalPosition:"top",
       }
     );
+
+    snackBarRef.afterDismissed().subscribe(obs => {
+      this.startTimer();
+    });
+  }
+
+  startTimer = () => {
+    this.remainingSeconds = this.sessionService.intervals * 60;
+
+    const interval = setInterval(() => {
+      this.remainingSeconds--;
+      if(this.remainingSeconds === 0) {
+        clearInterval(interval);
+      }
+    }, 1000);
   }
 
 }
