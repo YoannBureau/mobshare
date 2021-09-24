@@ -12,6 +12,7 @@ import { MaterialModule } from './modules/material/material.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SessionConfiguratorComponent } from './components/session-configurator/session-configurator.component';
+import { SessionComponent } from './components/session/session.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -21,6 +22,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   declarations: [
     AppComponent,
     SessionConfiguratorComponent,
+    SessionComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,6 +16,7 @@ export class SessionConfiguratorComponent implements OnInit {
 
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   attendees: string[] = [];
+  isRandomized = true;
   timeInterval = 5;
 
   @ViewChild('attendeesScrollbar') attendeesScrollbar!: PerfectScrollbarComponent;
@@ -48,8 +49,8 @@ export class SessionConfiguratorComponent implements OnInit {
     }
   }
 
-  startSession = () => {
-    this.sessionService.startSession();
+  setSession = () => {
+    this.sessionService.setSession(this.attendees, this.isRandomized, this.timeInterval);
   }
 
   sessionCanStart = () => this.attendees.length > 1;

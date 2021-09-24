@@ -18,7 +18,7 @@
         </mat-form-field>
     </div>
     <div class="options">
-        <mat-checkbox class="randomize">Randomize</mat-checkbox>
+        <mat-checkbox class="randomize" [(ngModel)]="isRandomized">Randomize</mat-checkbox>
         <mat-form-field class="time-interval" appearance="fill">
             <mat-label>Intervals</mat-label>
             <input type="number" min="1" matInput placeholder="Must be an integer" [value]="timeInterval">
@@ -26,6 +26,6 @@
         </mat-form-field>
     </div>
 
-    <button class="start-button" mat-raised-button color="primary" (click)="startSession()"
+    <button class="start-button" mat-raised-button color="primary" (click)="setSession()"
         [disabled]="!sessionCanStart()">Start Mob Programming Session</button>
 </div>
