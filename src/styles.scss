@@ -7,3 +7,12 @@ body {
     background: #303030;
     color: white;
 }
+
+.mat-snack-bar-container {
+    margin: 5px !important;
+    min-width: 275px !important;
+
+    .mat-simple-snackbar-action {
+        color: red;
+    }
+}

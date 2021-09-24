@@ -1,0 +1,33 @@
+.current-roles {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 3px;
+    color: darkgray;
+
+    > div {
+        display: flex;
+        align-items: end;
+
+        span {
+            margin: 0 4px;
+        }
+    }
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 12px;
+    margin-bottom: 17px;
+    font-size: 60px;
+
+    .minutes, .seconds {
+        width: 70px;
+    }
+
+    .minutes {
+        text-align: right;
+    }
+}

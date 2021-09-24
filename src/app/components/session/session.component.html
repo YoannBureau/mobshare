@@ -1,1 +1,22 @@
-<p>session works!</p>
+<div class="current-roles">
+    <div class="driver">
+        <mat-icon aria-hidden="false" aria-label="Driver" matTooltip="Controls the keyboard and mouse. Can't speak or take decisions. Executes the navigator's instructions only." matTooltipPosition="right">keyboard</mat-icon>
+        <span>John</span>
+    </div>
+    <div class="navigator">
+        <span>Jack</span>
+        <mat-icon aria-hidden="false" aria-label="Navigator" matTooltip="Gives instructions to the Driver. Listens to the Mob but has the final word." matTooltipPosition="left">campaign</mat-icon>
+    </div>
+</div>
+<div class="timer">
+    <div class="minutes">00</div>
+    <div class="separator">:</div>
+    <div class="seconds">00</div>
+</div>
+<div class="progress-bar">
+    <mat-progress-bar
+        color="primary"
+        mode="determinate"
+        [value]="progressBarValue()">
+    </mat-progress-bar>
+</div>
