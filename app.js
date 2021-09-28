@@ -14,7 +14,8 @@ function createWindow() {
         },
         resizable: false,
         alwaysOnTop: true,
-        title: "MobShare"
+        title: "MobShare",
+        icon: __dirname + '/src/assets/hourglass.ico',
     })
 
     mainWindow.on("page-title-updated", function (event, title) {
