@@ -26,7 +26,7 @@ export class SessionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.openSnackBar(`Give controls to ${this.currentDriver()}, then press \"Start\".`, "Start");
+    this.openSnackBar(`⌨️ ${this.currentDriver()}, 📣 ${this.currentNavigator()}.`, "Start");
   }
 
   progressBarValue = () => 100 - ((this.remainingSeconds * 100) / (this.sessionService.intervals * 60));
@@ -34,9 +34,9 @@ export class SessionComponent implements OnInit {
   timerMinutes = () => Math.floor(this.remainingSeconds / 60);
   timerSeconds = () => this.remainingSeconds - this.timerMinutes() * 60;
 
-  currentDriver = () => this.sessionService.attendees[this.currentAttendeeIndex];
+  currentDriver = () => this.sessionService.attendees[this.currentAttendeeIndex + 1];
 
-  currentNavigator = () => this.sessionService.attendees[this.currentAttendeeIndex + 1];
+  currentNavigator = () => this.sessionService.attendees[this.currentAttendeeIndex];
 
   openSnackBar(message: string, action: string) {
     const snackBarRef = this._snackBar.open(
@@ -70,7 +70,8 @@ export class SessionComponent implements OnInit {
       this.currentAttendeeIndex = 0;
     }
 
-    this.openSnackBar(`${this.currentDriver()} becomes the driver, and ${this.currentNavigator()} the navigator.`, "Start");
+    this.openSnackBar(`⌨️ ${this.currentDriver()}, 📣 ${this.currentNavigator()}.`, "Start");
+    //this.openSnackBar(`${this.currentDriver()} becomes the driver, and ${this.currentNavigator()} the navigator.`, "Start");
     this.playNotificationSound();
   }
 
