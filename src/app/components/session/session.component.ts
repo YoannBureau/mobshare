@@ -17,9 +17,6 @@ export class SessionComponent implements OnInit {
     private sessionService: SessionService,
     private _snackBar: MatSnackBar
   ) {
-    // TODO : Remove
-    this.sessionService.setSession(["John", "Jane", "Jack", "Bernard"], false, 0.1);
-
     // Init audio notification
     this.audioNotification.src = "../../../assets/notification.mp3";
     this.audioNotification.load();

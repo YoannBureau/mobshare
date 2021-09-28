@@ -6,6 +6,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 
 import { SessionService } from 'src/app/services/session.service';
 import { PerfectScrollbarComponent } from 'ngx-perfect-scrollbar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-session-configurator',
@@ -22,6 +23,7 @@ export class SessionConfiguratorComponent implements OnInit {
   @ViewChild('attendeesScrollbar') attendeesScrollbar!: PerfectScrollbarComponent;
 
   constructor(
+    private router: Router,
     private sessionService: SessionService
   ) { }
 
@@ -51,6 +53,7 @@ export class SessionConfiguratorComponent implements OnInit {
 
   setSession = () => {
     this.sessionService.setSession(this.attendees, this.isRandomized, this.timeInterval);
+    this.router.navigate(["session"]);
   }
 
   sessionCanStart = () => this.attendees.length > 1;

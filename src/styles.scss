@@ -6,6 +6,8 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background: #303030;
     color: white;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .mat-snack-bar-container {
@@ -15,4 +17,8 @@ body {
     .mat-simple-snackbar-action {
         color: red;
     }
+}
+
+.cdk-global-overlay-wrapper {
+    align-items: center !important;
 }

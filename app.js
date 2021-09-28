@@ -9,11 +9,26 @@ function createWindow() {
         width: 290,
         height: 310,
         autoHideMenuBar: true,
-        //frame: false,
         webPreferences: {
             nodeIntegration: true
         },
-        resizable: false
+        resizable: false,
+        alwaysOnTop: true,
+        title: "MobShare"
+    })
+
+    mainWindow.on("page-title-updated", function (event, title) {
+        if(title === "MobShare Timer") {
+            mainWindow.setSize(290, 111)
+        }
+    })
+
+    mainWindow.webContents.openDevTools({
+        mode: 'detach'
+    })
+
+    mainWindow.on('closed', function () {
+        mainWindow = null
     })
 
     mainWindow.loadURL("http://localhost:4200/");
@@ -26,14 +41,6 @@ function createWindow() {
     //     })
     // );
     // Open the DevTools.
-
-    mainWindow.webContents.openDevTools({
-        mode: 'detach'
-    })
-
-    mainWindow.on('closed', function () {
-        mainWindow = null
-    })
 }
 
 app.on('ready', createWindow)

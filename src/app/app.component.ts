@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter, map } from 'rxjs/operators';
+
 import { SessionService } from './services/session.service';
 
 @Component({
@@ -6,12 +10,30 @@ import { SessionService } from './services/session.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   constructor(
-    private sessionService: SessionService
+    private router: Router,
+    private titleService: Title
   ) { }
 
-  sessionIsSet = () => this.sessionService.isSet;
-
+  ngOnInit(): void {
+    this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map((event) => event)
+      )
+      .subscribe((event: any) => {
+        switch (event.url) {
+          case "/":
+            this.titleService.setTitle("MobShare");
+            break;
+          case "/session":
+            this.titleService.setTitle("MobShare Timer");
+            break;
+          default:
+            break;
+        }
+      });
+  }
 }
