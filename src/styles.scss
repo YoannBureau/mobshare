@@ -22,3 +22,14 @@ body {
 .cdk-global-overlay-wrapper {
     align-items: center !important;
 }
+
+.mat-tooltip-panel {
+  top: 0 !important;
+  left: 0 !important;
+
+  .mat-tooltip {
+    font-size: 12px;
+    line-height: 12px;
+    padding: 6px !important;
+  }
+}

@@ -4,9 +4,9 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
 import { MatChipInputEvent } from '@angular/material/chips';
 
-import { SessionService } from 'src/app/services/session.service';
 import { PerfectScrollbarComponent } from 'ngx-perfect-scrollbar';
 import { Router } from '@angular/router';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-session-configurator',

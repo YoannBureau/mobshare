@@ -1,11 +1,11 @@
 <div class="current-roles">
     <div class="driver">
-        <mat-icon aria-hidden="false" aria-label="Driver" matTooltip="Controls the keyboard and mouse. Can't speak or take decisions. Executes the navigator's instructions only." matTooltipPosition="right">keyboard</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="Driver" [matTooltip]="'PAGES.SESSION.DRIVER_INSTRUCTIONS' | translate" matTooltipPosition="right">keyboard</mat-icon>
         <span>{{currentDriver()}}</span>
     </div>
     <div class="navigator">
         <span>{{currentNavigator()}}</span>
-        <mat-icon aria-hidden="false" aria-label="Navigator" matTooltip="Gives instructions to the Driver. Listens to the Mob but has the final word." matTooltipPosition="left">campaign</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="Navigator" [matTooltip]="'PAGES.SESSION.NAVIGATOR_INSTRUCTIONS' | translate" matTooltipPosition="left">campaign</mat-icon>
     </div>
 </div>
 <div class="timer">

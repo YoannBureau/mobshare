@@ -1,0 +1,18 @@
+{
+  "PAGES": {
+    "CONFIGURATOR": {
+      "ATTENDEES": "Mob Session Attendees",
+      "ATTENDEES_HOWTO": "Enter attendee name then press Enter",
+      "RANDOMIZE": "Randomize",
+      "INTERVALS": "Intervals",
+      "MINUTES": "minutes",
+      "INTERVALS_INTEGER": "Must be an Integer",
+      "START_SESSION": "Start Mob Programming Session"
+    },
+    "SESSION": {
+      "DRIVER_INSTRUCTIONS": "Controls the keyboard and mouse. Can't speak or take decisions. Executes the navigator's instructions only.",
+      "NAVIGATOR_INSTRUCTIONS": "Gives instructions to the Driver. Listens to the Mob but has the final word.",
+      "START": "Start"
+    }
+  }
+}

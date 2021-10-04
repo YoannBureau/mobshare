@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SessionService } from 'src/app/services/session.service';
+import { TranslateService } from '@ngx-translate/core';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-session',
@@ -13,7 +14,10 @@ export class SessionComponent implements OnInit {
   private remainingSeconds = 0;
   private audioNotification = new Audio();
 
+  private translationStart = "";
+
   constructor(
+    private translateService: TranslateService,
     private sessionService: SessionService,
     private _snackBar: MatSnackBar
   ) {
@@ -23,7 +27,7 @@ export class SessionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.openSnackBar(`⌨️ ${this.currentDriver()}, 📣 ${this.currentNavigator()}.`, "Start");
+    this.openSnackBar(`⌨️ ${this.currentDriver()}, 📣 ${this.currentNavigator()}.`, this.translateService.instant("PAGES.SESSION.START"));
   }
 
   progressBarValue = () => 100 - ((this.remainingSeconds * 100) / (this.sessionService.intervals * 60));
@@ -67,7 +71,7 @@ export class SessionComponent implements OnInit {
       this.currentAttendeeIndex = 0;
     }
 
-    this.openSnackBar(`⌨️ ${this.currentDriver()}, 📣 ${this.currentNavigator()}.`, "Start");
+    this.openSnackBar(`⌨️ ${this.currentDriver()}, 📣 ${this.currentNavigator()}.`, this.translateService.instant("PAGES.SESSION.START"));
     //this.openSnackBar(`${this.currentDriver()} becomes the driver, and ${this.currentNavigator()} the navigator.`, "Start");
     this.playNotificationSound();
   }

@@ -1,16 +1,16 @@
 <div class="configurator-container">
     <div>
         <mat-form-field class="attendee-list" appearance="fill">
-            <mat-label>Mob Session Attendees</mat-label>
+            <mat-label>{{ 'PAGES.CONFIGURATOR.ATTENDEES' | translate }}</mat-label>
             <perfect-scrollbar style="height: 100px;" #attendeesScrollbar>
-                <mat-chip-list #chipList aria-label="Attendees selection">
+                <mat-chip-list #chipList aria-label="'PAGES.CONFIGURATOR.ATTENDEES' | translate">
                     <mat-chip *ngFor="let attendee of attendees" [selectable]="true" [removable]="true"
                         (removed)="remove(attendee)">
                         {{attendee}}
                         <mat-icon matChipRemove>cancel</mat-icon>
                     </mat-chip>
                     <br />
-                    <input placeholder="Enter attendee name then press Enter" [matChipInputFor]="chipList"
+                    <input [placeholder]="'PAGES.CONFIGURATOR.ATTENDEES_HOWTO' | translate" [matChipInputFor]="chipList"
                         [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
                         (matChipInputTokenEnd)="add($event)">
                 </mat-chip-list>
@@ -18,14 +18,14 @@
         </mat-form-field>
     </div>
     <div class="options">
-        <mat-checkbox class="randomize" [(ngModel)]="isRandomized">Randomize</mat-checkbox>
+        <mat-checkbox class="randomize" [(ngModel)]="isRandomized">{{ 'PAGES.CONFIGURATOR.RANDOMIZE' | translate }}</mat-checkbox>
         <mat-form-field class="time-interval" appearance="fill">
-            <mat-label>Intervals</mat-label>
-            <input type="number" min="1" matInput placeholder="Must be an integer" [(ngModel)]="timeInterval">
-            <span matSuffix>minutes</span>
+            <mat-label>{{ 'PAGES.CONFIGURATOR.INTERVALS' | translate }}</mat-label>
+            <input type="number" min="1" matInput [placeholder]="'PAGES.CONFIGURATOR.INTERVALS_INTEGER' | translate" [(ngModel)]="timeInterval">
+            <span matSuffix>{{ 'PAGES.CONFIGURATOR.MINUTES' | translate }}</span>
         </mat-form-field>
     </div>
 
     <button class="start-button" mat-raised-button color="primary" (click)="setSession()"
-        [disabled]="!sessionCanStart()">Start Mob Programming Session</button>
+        [disabled]="!sessionCanStart()">{{ 'PAGES.CONFIGURATOR.START_SESSION' | translate }}</button>
 </div>
