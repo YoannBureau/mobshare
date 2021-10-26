@@ -35,7 +35,7 @@ export class SessionComponent implements OnInit {
   timerMinutes = () => Math.floor(this.remainingSeconds / 60);
   timerSeconds = () => this.remainingSeconds - this.timerMinutes() * 60;
 
-  currentDriver = () => this.sessionService.attendees[this.currentAttendeeIndex + 1];
+  currentDriver = () => this.sessionService.attendees[this.sessionService.attendees.length != this.currentAttendeeIndex + 1 ? this.currentAttendeeIndex + 1 : 0];
 
   currentNavigator = () => this.sessionService.attendees[this.currentAttendeeIndex];
 
